@@ -1,0 +1,40 @@
+version: "3"
+
+services:
+  react-frontend:
+    build:
+      context: ./react-frontend
+    container_name: react-frontend
+    command: npm start
+    volumes:
+      - ./react-frotend/src:/usr/app/src
+    ports:
+      - "3000:3000"
+  
+  deno-api:
+    build:
+      context: ./deno-api
+    container_name: deno-api
+    command: start
+    environment:
+      - PORT=3001
+      - URL=http://localhost
+      - MONGO_URL=mongodb://mongo_database:27017
+      - DB_NAME=income-coding
+    volumes:
+      - ./deno-api/src:/usr/app/src
+    ports:
+      - "3001:3001"
+    depends_on: 
+      - api_mongo
+  
+  mongo_database:
+    image: mongo:latest
+    container_name: mongo_database
+    volumes:
+      - mongodb_api:/data/db
+    ports:
+      - "27017:27017"
+
+volumes:
+    mongodb_api:
