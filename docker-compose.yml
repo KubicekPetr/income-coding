@@ -22,11 +22,11 @@ services:
       - MONGO_URL=mongodb://mongo_database:27017
       - DB_NAME=income-coding
     volumes:
-      - ./deno-api/src:/usr/app/src
+      - ./deno-api/src:/app/src
     ports:
       - "3001:3001"
     depends_on: 
-      - api_mongo
+      - mongo_database
   
   mongo_database:
     image: mongo:latest

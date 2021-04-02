@@ -1,6 +1,7 @@
 {
     "allow": [
-        "env"
+        "env",
+        "net"
     ],
     "scripts": {
         "start": "src/main.ts"
