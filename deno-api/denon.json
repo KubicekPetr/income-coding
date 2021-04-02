@@ -1,0 +1,8 @@
+{
+    "allow": [
+        "env"
+    ],
+    "scripts": {
+        "start": "src/main.ts"
+    }
+}
