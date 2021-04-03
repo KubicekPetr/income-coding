@@ -13,11 +13,18 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Local development
 
-Following setps run in the terminal to start your local development
+Following setps run in the terminal to start your local development:
 
 ```
 docker-compose up
 ```
+
+When you need to modify deps.ts file in deno-api project you also need to rebuild its Dockerfile. You can accomplish that by running:
+
+```
+docker-compose up --build
+```
+*This is needed to re-cache deno dependencies in the container.*
 
 ## Built With
 
