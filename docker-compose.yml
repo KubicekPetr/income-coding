@@ -7,7 +7,7 @@ services:
     container_name: react-frontend
     command: npm start
     volumes:
-      - ./react-frotend/src:/usr/app/src
+      - ./react-frotend/src:/app/src
     ports:
       - "3000:3000"
   
