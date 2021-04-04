@@ -1,12 +1,9 @@
-FROM node:15.13.0-alpine3.10
+FROM node:current-alpine3.13
 
 WORKDIR /app
 
-COPY package.json .
+COPY package* ./
 
 RUN npm install
 
 ADD . .
-
-
-
