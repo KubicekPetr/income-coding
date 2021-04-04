@@ -34,7 +34,7 @@ services:
     volumes:
       - mongodb_api:/data/db
     ports:
-      - "27017:27017"
+      - "3002:27017"
 
 volumes:
     mongodb_api:
