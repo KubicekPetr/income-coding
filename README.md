@@ -26,6 +26,11 @@ docker-compose up --build
 ```
 *This is needed to re-cache deno dependencies in the container.*
 
+### Recommended extensions for VSCode
+
+* Deno | denoland - Deno linting, type checking, formatting etc.
+* ES7 React/Redux/GraphQL/React-Native snippets | dsznajder - React snippets, whisper
+
 ## Built With
 
 * [Deno](https://deno.land/) - The secure typescript runtime used for B-E API
