@@ -1,6 +1,7 @@
 import { Application } from "../deps.ts";
 import notFound from "./middlewares/notFound.ts";
 
+
 const URL = Deno.env.get("URL") || "http://localhost";
 const PORT = +(Deno.env.get("PORT") || 3001);
 

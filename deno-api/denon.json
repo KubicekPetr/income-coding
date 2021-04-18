@@ -1,9 +1,9 @@
 {
-    "allow": [
-        "env",
-        "net"
-    ],
-    "scripts": {
-        "start": "src/main.ts"
-    }
+  "allow": [
+    "env",
+    "net"
+  ],
+  "scripts": {
+    "start": "src/main.ts"
+  }
 }

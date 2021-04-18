@@ -19,7 +19,7 @@ services:
     environment:
       - PORT=3001
       - URL=http://localhost
-      - MONGO_URL=mongodb://mongo_database:27017
+      - MONGO_URL=mongodb://mongo_database:3002
       - DB_NAME=income-coding
     volumes:
       - ./deno-api/src:/app/src
