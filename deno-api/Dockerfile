@@ -1,4 +1,4 @@
-FROM hayd/deno:alpine-1.8.2
+FROM hayd/deno:alpine-1.9.0
 
 RUN deno install -qAf --unstable https://deno.land/x/denon/denon.ts
 

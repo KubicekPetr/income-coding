@@ -7,7 +7,7 @@ class MongoDatabase {
   private static instance: MongoDatabase;
 
   constructor() {
-    this.MONGO_URL = Deno.env.get("MONGO_URL") || "mongodb://localhost:3002";
+    this.MONGO_URL = Deno.env.get("MONGO_URL") || "mongodb://localhost:27017";
     this.DB_NAME = Deno.env.get("DB_NAME") || "content_storage";
     this.client = {} as MongoClient;
   }
