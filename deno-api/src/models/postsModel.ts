@@ -1,20 +1,23 @@
 import { Bson } from "../../deps.ts";
 
-interface IPost{
-    _id:Bson.Document;
-    title:string;
-    post:string;
-    username:string;
-    createdAt:Date;
-    updatedAt?:Date;
-    likes:number;
-    comments:IComment[];
-    hashtags?:string[];
+import IComment from "./commentModel.ts";
+
+interface IPost {
+  _id: Bson.Document;
+  title: string;
+  post: string;
+  createdBy: string;
+  createdAt: Date;
+  updatedBy?: string;
+  updatedAt?: Date;
+  hashtags?: string[];
+  reactions?: IReactions;
 }
 
-interface IComment{
-    _id:Bson.Document;
-    comment:string;
-    likes:number;
-    replies: IComment[];
+interface IReactions {
+  positives?: number;
+  negatives?: number;
+  comments?: IComment[];
 }
+
+export default IPost;
