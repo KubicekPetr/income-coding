@@ -1,9 +1,8 @@
 import { Bson } from "../../deps.ts";
-
 import IComment from "./commentModel.ts";
 
 interface IPost {
-  _id: Bson.Document;
+  _id: Bson.ObjectId;
   title: string;
   post: string;
   createdBy: string;
@@ -14,10 +13,15 @@ interface IPost {
   reactions?: IReactions;
 }
 
+type PostSchema = Omit<IPost, "_id">;
+
 interface IReactions {
   positives?: number;
   negatives?: number;
   comments?: IComment[];
 }
 
-export default IPost;
+export type { 
+  IPost,
+  PostSchema,
+};
