@@ -2,13 +2,13 @@ import { Bson } from "../../deps.ts";
 import MongoDatabase from "../dbConections/mongodb.ts";
 
 import IRepository from "./IRepository.ts";
-import IPost from "../models/postsModel.ts";
+import { IPost, PostSchema } from "../models/postModel.ts";
 
 const db = (await MongoDatabase.getInstance()).getDatabase;
 const postsCollection = db.collection<IPost>("posts");
 
-interface IUpdateResult {
-  upsertedId: Bson.Document | undefined;
+export interface IUpdateResult {
+  upsertedId?: Bson.ObjectId;
   upsertedCount: number;
   matchedCount: number;
   modifiedCount: number;
@@ -20,14 +20,14 @@ export class MongoRepository implements IRepository {
   }
 
   async getPost(_id: string): Promise<IPost | undefined> {
-    return await postsCollection.findOne({ _id });
+    return await postsCollection.findOne({ _id: new Bson.ObjectId(_id) });
   }
 
-  async createPost(data: IPost): Promise<Bson.Document> {
+  async createPost(data: PostSchema): Promise<Bson.Document> {
     return await postsCollection.insertOne(data);
   }
 
-  async updatePost(_id: string, data: Partial<IPost>): Promise<IUpdateResult> {
+  async updatePost(_id: string, data: Partial<PostSchema>): Promise<IUpdateResult> {
     return await postsCollection.updateOne({
       _id: new Bson.ObjectId(_id),
     }, {
@@ -35,7 +35,7 @@ export class MongoRepository implements IRepository {
     });
   }
 
-  async deletePost(_id: string): Promise<number> {
-    return await postsCollection.deleteOne({ _id });
+  async removePost(_id: string): Promise<number> {
+    return await postsCollection.deleteOne({ _id: new Bson.ObjectId(_id) });
   }
 }
